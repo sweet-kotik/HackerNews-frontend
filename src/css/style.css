@@ -1,0 +1,36 @@
+header {
+    background-color: rgb(255, 192, 75);
+    border-radius: 5px;
+}
+
+#root {
+    background-color: rgb(255, 247, 232);
+    border: 1px solid black;
+    width: 50%;
+    top: 1%;
+    left: 25%;
+    position: absolute;
+    border-radius: 5px;
+    padding-top: 4px;
+}
+
+body {
+    text-align: center;
+}
+.container {
+    margin-top: 4vh;
+    margin-left: 1vw;
+}
+
+.summary {
+    cursor: pointer;
+    width: max-content;
+}
+
+.date {
+    cursor: initial;
+}
+
+.text {
+    text-align: left;
+}
