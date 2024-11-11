@@ -21,8 +21,11 @@ export default function NewsArea({newsId}) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await getNewsItem(newsId);
-                setNewsItem(data);
+                getNewsItem(newsId).then(res => {
+                    console.log(`res: ${res} newsId: ${newsId}`);
+                    setNewsItem(res);
+                });
+                
             } finally {
                 setLoading(false);
             }
@@ -37,6 +40,8 @@ export default function NewsArea({newsId}) {
 
     const { title, time, by, url } = newsItem;
 
+    console.log(newsItem.kids);
+
     return (
         <>
             <Feed>
@@ -50,7 +55,7 @@ export default function NewsArea({newsId}) {
                 </FeedEvent>
             </Feed>
             <CommentGroup>
-                <Header as="h3" dividing>Comments - {newsItem.kids.lenght}</Header>
+                <Header as="h3" dividing>Comments - {newsItem.kids}</Header>
                 {newsItem.kids ? newsItem.kids.map((item, index) => (
                         <CommentsItem newsId={item} key={index} />
                 )) :  <p>Нет комментариев</p>}

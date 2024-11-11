@@ -34,8 +34,14 @@ class App extends React.Component {
         }
 
 
-        componentWillUnmount() {
+        async componentWillUnmount() {
             console.log(`${this.interval} - unmount`);
+            news.map((newsId) => {
+                htmx.off(`#id${newsId}`, "click", () => {
+                    console.log(`id: ${newsId} - off`);
+                });
+            })
+            
             clearInterval(this.interval);
         }
             

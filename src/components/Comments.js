@@ -18,6 +18,8 @@ export default function CommentsItem({newsId}) {
             try {
                 const data = await getNewsItem(newsId);
                 setNewsItem(data);
+            } catch (error) {
+                console.error(error);
             } finally {
                 setLoading(false);
             }

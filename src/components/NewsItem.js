@@ -33,6 +33,7 @@ export default function NewsItem({newsId}) {
         fetchData();
     }, [newsId]);
 
+
     useEffect(() => {
         if (!loading && newsItem) {
             htmx.on(`#id${newsId}`, "click", () => {
